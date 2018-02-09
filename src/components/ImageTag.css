@@ -1,0 +1,12 @@
+.ImageTag {
+  display: flex;
+  flex-direction: column;
+}
+
+.ImageTag img {
+  margin: auto;
+}
+
+.ImageTag span {
+  text-align: center;
+}
