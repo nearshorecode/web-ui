@@ -53,6 +53,7 @@
     "test": "node scripts/test.js --env=jsdom"
   },
   "devDependencies": {
+    "@storybook/addon-info": "^3.3.13",
     "@storybook/react": "^3.3.13",
     "enzyme-react-16-adapter-setup": "^0.1.0"
   },
