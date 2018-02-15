@@ -13,7 +13,7 @@ setDefaults({
   maxPropStringLength: 200,
 });
 
-
 configure(loadStories, module);
 
 export default loadStories
+
