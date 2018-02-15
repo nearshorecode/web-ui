@@ -1,28 +1,24 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import './Icon.css';
 
-import './ImageTag.css';
-
-class ImageTag extends PureComponent {
+class Icon extends PureComponent {
   render() {
-    const { imageSrc, tag, size } = this.props;
-
+    const { imageSrc, size, horizontal} = this.props;
     return (
-      <div className="ImageTag">
+      <div className={`Icon ${horizontal}`}>
         <img src={imageSrc} alt={imageSrc} style={{...size}}/>
-        <span>{tag}</span>
       </div>
     );
   }
 }
 
-ImageTag.propTypes = {
+Icon.propTypes = {
   imageSrc: PropTypes.string.isRequired,
-  tag: PropTypes.string.isRequired,
   size: PropTypes.shape({
     width: PropTypes.string,
     height: PropTypes.string,
   }),
+  horizontal: PropTypes.string,
 };
-
-export default ImageTag;
+export default Icon;
