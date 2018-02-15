@@ -4,8 +4,6 @@ import ReactDOM from 'react-dom';
 import Stack, { ORIENTATION } from '../Stack';
 
 import { mount } from 'enzyme';
-import { wrap } from 'module';
-
 
 const DEFAULT_PROPS = {
   orientation: 'horizontal',
