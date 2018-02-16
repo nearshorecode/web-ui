@@ -20,11 +20,7 @@ import redux from './images/redux.png';
 import sqlserver from './images/sqlserver.png';
 import xamarin from './images/xamarin.png';
 
-<<<<<<< HEAD
 var jsTechnology = [
-=======
-var array1 = [
->>>>>>> 042f3e40d9a991d122cfa159685c1c1e76216494
   {imgSrc:angular, width:'78px', height: '78px'},
   {imgSrc:react, width:'78px', height: '78px'},
   {imgSrc:js,  width:'78px', height: '78px'},
@@ -33,22 +29,14 @@ var array1 = [
   {imgSrc:redux, width:'78px', height: '78px'},
   {imgSrc:meteor, width:'78px', height: '78px'},
 ];
-<<<<<<< HEAD
 var dbTechnology = [
-=======
-var array2 = [
->>>>>>> 042f3e40d9a991d122cfa159685c1c1e76216494
   {imgSrc:pgdb, width:'78px', height: '78px'},
   {imgSrc:mysql, width:'78px', height: '78px'},
   {imgSrc:mongodb, width:'78px', height: '78px'},
   {imgSrc:ravendb, width:'78px', height: '78px'},
   {imgSrc:sqlserver, width:'78px', height: '78px'},
 ];
-<<<<<<< HEAD
 var mobileTechnology = [
-=======
-var array3 = [
->>>>>>> 042f3e40d9a991d122cfa159685c1c1e76216494
   {imgSrc:xamarin, width:'78px', height: '78px'},
   {imgSrc:android, width:'78px', height: '78px'},
   {imgSrc:apple, width:'78px', height: '78px'},
@@ -61,11 +49,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-<<<<<<< HEAD
         <TechIcon jsTechnology={jsTechnology} dbTechnology={dbTechnology} mobileTechnology={mobileTechnology}  />
-=======
-        <TechIcon array1={array1} array2={array2} array3={array3}  />
->>>>>>> 042f3e40d9a991d122cfa159685c1c1e76216494
       </div>
     );
   }
