@@ -18,6 +18,5 @@ Icon.propTypes = {
     width: PropTypes.string,
     height: PropTypes.string,
   }),
-  horizontal: PropTypes.string,
 };
 export default Icon;
