@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/nearshorecode/web-ui.svg?branch=master)](https://travis-ci.org/nearshorecode/web-ui)
+[![codecov](https://codecov.io/gh/nearshorecode/web-ui/branch/master/graph/badge.svg)](https://codecov.io/gh/nearshorecode/web-ui)
 
 # Default Logs
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
