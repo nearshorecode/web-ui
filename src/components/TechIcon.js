@@ -1,11 +1,19 @@
 import React, { Component } from 'react';
 import { IconList } from 'components';
 import PropTypes from 'prop-types';
+<<<<<<< HEAD
 
 class TechIcon extends Component {
   render() {
   const { jsTechnology, dbTechnology, mobileTechnology} = this.props;
   const horizontal=true;
+=======
+class TechIcon extends Component {
+  render() {
+  const { array1, array2, array3} = this.props;
+  const horizontal=true;
+  
+>>>>>>> 042f3e40d9a991d122cfa159685c1c1e76216494
   return (
     <div className="App">
       <div>
@@ -17,6 +25,7 @@ class TechIcon extends Component {
       </div>
       <div>
         <h1>JS TECHNOLOGY</h1>
+<<<<<<< HEAD
         <IconList images={jsTechnology} flow={horizontal?'':'vertical'}/>
       </div>
       <div>
@@ -26,6 +35,17 @@ class TechIcon extends Component {
       <div>
         <h1>MOBILE TECHNOLOGY</h1>
         <IconList images={mobileTechnology} flow={horizontal?'':'vertical'}/>
+=======
+        <IconList images={array1} flow={horizontal?'horizontal':'vertical'}/>
+      </div>
+      <div>
+        <h1>DB TECHNOLOGY</h1>
+        <IconList images={array2} flow={horizontal?'horizontal':'vertical'}/>
+      </div>
+      <div>
+        <h1>MOBILE TECHNOLOGY</h1>
+        <IconList images={array3} flow={horizontal?'horizontal':'vertical'}/>
+>>>>>>> 042f3e40d9a991d122cfa159685c1c1e76216494
       </div>
     </div>
 );
