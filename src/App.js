@@ -20,7 +20,7 @@ import redux from './images/redux.png';
 import sqlserver from './images/sqlserver.png';
 import xamarin from './images/xamarin.png';
 
-var array1 = [
+var jsTechnology = [
   {imgSrc:angular, width:'78px', height: '78px'},
   {imgSrc:react, width:'78px', height: '78px'},
   {imgSrc:js,  width:'78px', height: '78px'},
@@ -29,14 +29,14 @@ var array1 = [
   {imgSrc:redux, width:'78px', height: '78px'},
   {imgSrc:meteor, width:'78px', height: '78px'},
 ];
-var array2 = [
+var dbTechnology = [
   {imgSrc:pgdb, width:'78px', height: '78px'},
   {imgSrc:mysql, width:'78px', height: '78px'},
   {imgSrc:mongodb, width:'78px', height: '78px'},
   {imgSrc:ravendb, width:'78px', height: '78px'},
   {imgSrc:sqlserver, width:'78px', height: '78px'},
 ];
-var array3 = [
+var mobileTechnology = [
   {imgSrc:xamarin, width:'78px', height: '78px'},
   {imgSrc:android, width:'78px', height: '78px'},
   {imgSrc:apple, width:'78px', height: '78px'},
@@ -49,7 +49,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <TechIcon array1={array1} array2={array2} array3={array3}  />
+        <TechIcon jsTechnology={jsTechnology} dbTechnology={dbTechnology} mobileTechnology={mobileTechnology}  />
       </div>
     );
   }
