@@ -1,5 +1,9 @@
-import ImageTag from './ImageTag';
+import Icon from './Icon';
+import IconList from './IconList';
+import TechIcon from './TechIcon';
 
 export {
-  ImageTag,
+  Icon,
+  IconList,
+  TechIcon
 };
