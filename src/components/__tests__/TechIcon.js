@@ -19,12 +19,12 @@ describe('Icon Component', () => {
     ReactDOM.unmountComponentAtNode(div);
   });
 
-  it('contains only two children tag', () => {
+  it('contains only one img child tag', () => {
     const wrapper = mount(<TechIcon {...DEFAULT_PROPS}/>);
 
     const props = wrapper.find('img').props();
 
-     expect(props.src).toBe(`${IMAGE_PATH}${DEFAULT_PROPS.name}.png`);
+     expect(props.src).toBe(`${DEFAULT_PROPS.name}.png`);
      expect(props.alt).toBe(`${IMAGE_PATH}${DEFAULT_PROPS.name}.png`);
   })
   
