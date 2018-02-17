@@ -1,0 +1,16 @@
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-1.5em);
+  }
+  60% {
+    transform: translateY(-1em);
+  }
+}
+
+.wui-bouncer {
+  animation: bounce 2s infinite;
+  margin-top: 1em;
+}
