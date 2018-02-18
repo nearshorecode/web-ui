@@ -1,0 +1,8 @@
+.container {
+  border: solid 1px #dedede;
+  background-color: #fdfdfd;
+  border-radius: 5px;
+  padding: 5px;
+  border-style: dashed;
+}
+

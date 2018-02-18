@@ -48,10 +48,14 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
+    "storybook": "start-storybook -p 9001 -c ./config/storybook",
+    "storybook:build": "build-storybook -c ./config/storybook -o build/storybook",
     "test": "node scripts/test.js --env=jsdom",
     "test:coverage": "node scripts/test.js --env=jsdom && codecov "
   },
   "devDependencies": {
+    "@storybook/addon-info": "^3.3.13",
+    "@storybook/react": "^3.3.13",
     "enzyme-react-16-adapter-setup": "^0.1.0"
   },
   "jest": {

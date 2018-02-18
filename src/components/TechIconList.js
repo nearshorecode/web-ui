@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { TechIcon } from 'components';
+import { TechIcon } from './index';
 
 import './TechIconList.css';
 

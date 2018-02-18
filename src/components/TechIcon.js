@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 const IMAGE_PATH = './assets/tech-icons/';
 
+import TECH_ICONS from './assets/tech-icons';
+
 class TechIcon extends PureComponent {
   render() {
     const { name, size} = this.props;
@@ -10,7 +12,7 @@ class TechIcon extends PureComponent {
     const src = `${IMAGE_PATH}${name}.png`;
 
     return (
-      <img src={src} alt={src} style={{...size}}/>
+      <img src={TECH_ICONS[name]} alt={src} style={{...size}}/>
     );
   }
 }
