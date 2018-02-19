@@ -23,8 +23,7 @@ TechIcon.propTypes = {
     width: PropTypes.string,
     height: PropTypes.string,
   }),
-  style: PropTypes.shape({
-  }),
+  style: PropTypes.object
 };
 
 TechIcon.defaultProps = {
