@@ -2,7 +2,7 @@ import { configure } from '@storybook/react';
 import { setDefaults } from '@storybook/addon-info';
 
 function loadStories() {
-  require('../../src/stories/index.js');
+  require('../../stories/index.js');
 }
 
 // addon-info

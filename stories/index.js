@@ -3,15 +3,15 @@ import { storiesOf, addDecorator } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withInfo } from '@storybook/addon-info';
 
-import { ImageTag, TechIcon, TechIconList } from '../components';
+import { ImageTag, TechIcon, TechIconList } from '../src/components';
 
-import { Bouncer } from '../components/Animators';
+import { Bouncer } from '../src/components/Animators';
 
-import { Stack } from '../components/Layouts';
+import { Stack } from '../src/components/Layouts';
 
 import './css/index.css'
 
-import angular from '../components/assets/tech-icons/angular.png';
+import react from '../src/components/assets/tech-icons/react.png';
 
 addDecorator(story => (
   <div className="container">
@@ -23,7 +23,7 @@ storiesOf('Web UI Components', module)
   .add('Image Tag', 
     withInfo({ text: 'ImageTag renders an Image along with its Tag name' })(
       () => (
-        <ImageTag imageSrc={angular} tag="This is a test tag" size={{width: '250px', height: '250px'}}/>
+        <ImageTag imageSrc={react} tag="This is a test tag" size={{width: '250px', height: '250px'}}/>
       )
     )
   )
@@ -59,7 +59,7 @@ storiesOf('Animators', module)
     withInfo({ text: 'Bounce a component' })(
       () => (
         <Bouncer>
-          <ImageTag imageSrc={angular} tag="This is a test tag" size={{width: '50px', height: '50px'}}/>
+          <ImageTag imageSrc={react} tag="This is a test tag" size={{width: '50px', height: '50px'}}/>
         </Bouncer>
       )
     )
@@ -81,16 +81,16 @@ storiesOf('Layouts', module)
       () => (
         <Stack>
           <div style={{height: '250px'}}>
-            <ImageTag imageSrc={angular} tag="This is a test tag" size={{width: '50px', height: '50px'}}/>
+            <ImageTag imageSrc={react} tag="This is a test tag" size={{width: '50px', height: '50px'}}/>
           </div>
           <div style={{height: '250px', background: 'rgb(100, 150, 250)'}}>
-            <ImageTag imageSrc={angular} tag="This is a test tag" size={{width: '50px', height: '50px'}}/>
+            <ImageTag imageSrc={react} tag="This is a test tag" size={{width: '50px', height: '50px'}}/>
           </div>
           <div style={{height: '2450px', background: 'rgb(56, 50, 150)'}}>
-            <ImageTag imageSrc={angular} tag="This is a test tag" size={{width: '50px', height: '50px'}}/>
+            <ImageTag imageSrc={react} tag="This is a test tag" size={{width: '50px', height: '50px'}}/>
           </div>
           <div style={{height: '550px', background: 'rgb(120, 140, 50)'}}>
-            <ImageTag imageSrc={angular} tag="This is a test tag" size={{width: '50px', height: '50px'}}/>
+            <ImageTag imageSrc={react} tag="This is a test tag" size={{width: '50px', height: '50px'}}/>
           </div>
         </Stack>
       )
