@@ -30,4 +30,5 @@ describe('Icon Component', () => {
 
     expect(children.length).toBe(2);
   })
+  
 });

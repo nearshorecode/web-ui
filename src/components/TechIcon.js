@@ -7,12 +7,12 @@ import TECH_ICONS from './assets/tech-icons';
 
 class TechIcon extends PureComponent {
   render() {
-    const { name, size} = this.props;
+    const { name, size, style } = this.props;
 
     const src = `${IMAGE_PATH}${name}.png`;
 
     return (
-      <img src={TECH_ICONS[name]} alt={src} style={{...size}}/>
+      <img src={TECH_ICONS[name]} alt={src} style={{...style,...size}}/>
     );
   }
 }
@@ -23,13 +23,16 @@ TechIcon.propTypes = {
     width: PropTypes.string,
     height: PropTypes.string,
   }),
+  style: PropTypes.shape({
+  }),
 };
 
 TechIcon.defaultProps = {
   size: {
     width: '78px',
     height: '78px',
-  }
+  },
+  style: {},
 };
 
 export default TechIcon;

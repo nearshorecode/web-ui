@@ -6,12 +6,12 @@ import { mount } from 'enzyme';
 
 const DEFAULT_PROPS = {
   name: 'android',
-  width:'78px', 
-  height:'78px'
 };
 
 const IMAGE_PATH = './assets/tech-icons/';
-
+const padding = {
+  padding: "20px",
+}; 
 describe('Icon Component', () => {
   it('renders without crashing', () => {
     const div = document.createElement('div');
@@ -20,7 +20,7 @@ describe('Icon Component', () => {
   });
 
   it('contains only one img child tag', () => {
-    const wrapper = mount(<TechIcon {...DEFAULT_PROPS}/>);
+    const wrapper = mount(<TechIcon name="android" style={padding} />);
 
     const props = wrapper.find('img').props();
 
