@@ -29,6 +29,7 @@ export default {
   meteor,
   mongodb,
   mysql,
+  node,
   pgdb,
   ravendb,
   react,
