@@ -15,9 +15,9 @@ class TechIconList extends Component {
     const { icons } = this.props;
 
     return icons.map( (icon, idx) => {
-      const { name, width, height } = icon;
+      const { name, width, height, style } = icon;
       return (
-        <TechIcon name={name} size={{width, height}} key={idx}/>
+        <TechIcon name={name} size={{width, height}} key={idx} style={style}/>
       );
     });
   }
@@ -42,6 +42,7 @@ TechIconList.propTypes = {
     name: PropTypes.string,
     width: PropTypes.string,
     height: PropTypes.string,
+    style: PropTypes.object,
   })).isRequired,
   flow: PropTypes.string,
 };
