@@ -13,9 +13,7 @@ const DEFAULT_PROPS = {
 };
 const STYLE_PROPS = {
   icons: [
-    {name:'android', width:'18px', height:'78px',
-      style:{padding:'50px',}
-    }
+    {name:'android', width:'18px', height:'78px', style:{padding:'50px'}}
   ]  
 };
 describe('Icon Component', () => {
