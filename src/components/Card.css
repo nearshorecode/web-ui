@@ -1,11 +1,15 @@
 .Card {
   position: relative;
+  width: 250px;
+  height: 250px;
+  background-color: black;
 }
 
 .Card .content {
-  position: absolute;
+  position: relative;
+  font-family: sans-serif;
   font-size: 1.2em;
   color: white;
-  padding: 5%;
+  padding: 10%;
   text-align: center;
 }

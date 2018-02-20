@@ -24,12 +24,11 @@ class Card extends PureComponent {
   }
 
   render() {
-    const { bgColor, roundness, alignment, style, text } = this.props;
+    const { roundness, alignment, style, text } = this.props;
 
     return (
       <div className="Card"
         style={{
-          backgroundColor: bgColor,
           borderRadius: roundness ? roundness : 0,
           ...style,
         }}>
@@ -46,10 +45,14 @@ class Card extends PureComponent {
 }
 
 Card.propTypes = {
+  roundness: PropTypes.string,
+  alignment: PropTypes.string,
   style: PropTypes.shape({
     width: PropTypes.string,
     height: PropTypes.string,
+    color: PropTypes.string,
   }),
+  text: PropTypes.string.isRequired,
 };
 
 export default Card;

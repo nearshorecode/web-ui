@@ -9,12 +9,10 @@ class CardList extends PureComponent {
 
     return (
       <div className="CardList">
-        {children}
+        { children }
       </div>
     );
   }
 }
-
-CardList.propTypes = {};
 
 export default CardList;

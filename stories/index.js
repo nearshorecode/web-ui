@@ -3,7 +3,7 @@ import { storiesOf, addDecorator } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withInfo } from '@storybook/addon-info';
 
-import { ImageTag, TechIcon, TechIconList } from '../src/components';
+import { ImageTag, TechIcon, TechIconList, Card, CardList } from '../src/components';
 
 import { Bouncer } from '../src/components/Animators';
 
@@ -47,6 +47,42 @@ storiesOf('Web UI Components', module)
       <TechIconList icons={[{ name: 'react' }, { name: 'redux' }, { name: 'mongodb' }]} />
     ))
   );
+
+  .add('Card', 
+    withInfo({ text: 'Card renders an Card ...' })(
+      () => (
+        <Card roundness="50%"
+              alignment="top"
+              style={{width: '250px', height: '250px', 'background-color': '#2F7FB9'}}
+              text="APPLICATION DEVELOPMENT" />
+      )
+    )
+  )
+
+  .add('CardList', 
+    withInfo({ text: 'CardList renders a list of Cards ...' })(
+      () => (
+        <CardList>
+          <Card alignment="top"
+                style={{'background-color': '#2F7FB9'}}
+                text="APPLICATION DEVELOPMENT" />
+        
+          <Card roundness='25%'
+                style={{'background-color': '#1B9B82'}}
+                text="APPLICATION MAINTENANCE" />
+          
+          <Card roundness="50%"
+                alignment='bottom'
+                style={{'background-color': '#394990'}}
+                text="MOBILE DEVELOPMENT" />
+
+          <Card alignment="middle"
+                text="UX DESIGN" />
+
+        </CardList>
+      )
+    )
+  )  
 
 storiesOf('Animators', module)
   .add(
