@@ -1,0 +1,12 @@
+.Card {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.Card .content {
+  position: absolute;
+  font-size: 1.2em;
+  color: white;
+  padding: 5%;
+}
