@@ -1,6 +1,4 @@
 .Card {
-  display: flex;
-  justify-content: center;
   position: relative;
 }
 
@@ -9,4 +7,5 @@
   font-size: 1.2em;
   color: white;
   padding: 5%;
+  text-align: center;
 }
