@@ -17,7 +17,7 @@ const STYLE = {
 const SIZE = {
   width: '225px',
   height: '225px',
-}; 
+};
 
 describe('Card Component', () => {
   it('renders without crashing', () => {

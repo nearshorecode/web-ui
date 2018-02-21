@@ -46,43 +46,33 @@ storiesOf('Web UI Components', module)
     withInfo({ text: 'ImageTag renders an Image along with its Tag name by using a remote url for images' })(() => (
       <TechIconList icons={[{ name: 'react' }, { name: 'redux' }, { name: 'mongodb' }]} />
     ))
-  );
-
-  .add('Card', 
-    withInfo({ text: 'Card renders a Card ...' })(
-      () => (
-        <Card roundness="50%"
-              alignment="top"
-              style={{backgroundColor: '#2F7FB9'}}
-              text="APPLICATION DEVELOPMENT" />
-      )
-    )
   )
 
-  .add('CardList', 
-    withInfo({ text: 'CardList renders a list of Cards ...' })(
-      () => (
-        <CardList>
-          <Card alignment="top"
-                style={{backgroundColor: '#2F7FB9'}}
-                text="APPLICATION DEVELOPMENT" />
-        
-          <Card roundness="25%"
-                style={{width: '200px', height: '200px', backgroundColor: '#1B9B82'}}
-                text="APPLICATION MAINTENANCE" />
-          
-          <Card roundness="50%"
-                alignment="bottom"
-                style={{backgroundColor: '#394990'}}
-                text="MOBILE DEVELOPMENT" />
+  .add(
+    'Card',
+    withInfo({ text: 'Card renders a Card ...' })(() => (
+      <Card roundness="50%" alignment="top" style={{ backgroundColor: '#2F7FB9' }} text="APPLICATION DEVELOPMENT" />
+    ))
+  )
 
-          <Card alignment="middle"
-                text="UX DESIGN" />
+  .add(
+    'CardList',
+    withInfo({ text: 'CardList renders a list of Cards ...' })(() => (
+      <CardList>
+        <Card alignment="top" style={{ backgroundColor: '#2F7FB9' }} text="APPLICATION DEVELOPMENT" />
 
-        </CardList>
-      )
-    )
-  )  
+        <Card
+          roundness="25%"
+          style={{ width: '200px', height: '200px', backgroundColor: '#1B9B82' }}
+          text="APPLICATION MAINTENANCE"
+        />
+
+        <Card roundness="50%" alignment="bottom" style={{ backgroundColor: '#394990' }} text="MOBILE DEVELOPMENT" />
+
+        <Card alignment="middle" text="UX DESIGN" />
+      </CardList>
+    ))
+  );
 
 storiesOf('Animators', module)
   .add(

@@ -7,11 +7,7 @@ class CardList extends PureComponent {
   render() {
     const { children } = this.props;
 
-    return (
-      <div className="CardList">
-        { children }
-      </div>
-    );
+    return <div className="CardList">{children}</div>;
   }
 }
 

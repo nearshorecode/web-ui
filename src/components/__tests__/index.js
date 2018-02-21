@@ -6,9 +6,9 @@ import * as TechIconList from '../TechIconList';
 import * as Card from '../Card';
 import * as CardList from '../CardList';
 
-const expectedComponents = {  
+const expectedComponents = {
   Card: Card.default,
-  CardList: CardList.default,  
+  CardList: CardList.default,
   ImageTag: ImageTag.default,
   TechIcon: TechIcon.default,
   TechIconList: TechIconList.default,

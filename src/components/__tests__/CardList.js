@@ -12,7 +12,7 @@ describe('Card Component', () => {
     ReactDOM.render(<CardList />, div);
     ReactDOM.unmountComponentAtNode(div);
   });
- 
+
   it('should render children', () => {
     const wrapper = mount(
       <CardList>
