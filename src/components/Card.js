@@ -11,7 +11,7 @@ const VERTICAL_ALIGN = {
 
 class Card extends PureComponent {
   render() {
-    const { roundness, alignment, size, style, text } = this.props;
+    const { roundness, alignment, style, size, text } = this.props;
 
     return (
       <div className="Card" style={{
