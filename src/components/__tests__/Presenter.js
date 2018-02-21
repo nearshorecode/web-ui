@@ -7,7 +7,8 @@ import { mount } from 'enzyme';
 const props = {
   items: [
     {
-      image: 'https://en1rnkpr0125002.blob.core.windows.net/media/MeccaBingo/SlotsAndGames/Large/Reel-King-Potty-4-3.jpg',
+      image:
+        'https://en1rnkpr0125002.blob.core.windows.net/media/MeccaBingo/SlotsAndGames/Large/Reel-King-Potty-4-3.jpg',
       text: 'Example Text 1',
     },
     {
@@ -15,21 +16,20 @@ const props = {
       text: 'Example Text 2',
     },
     {
-      image: 'https://en1rnkpr0125002.blob.core.windows.net/media/MeccaBingo/SlotsAndGames/Large/enchanted-prince-4-3.jpg',
+      image:
+        'https://en1rnkpr0125002.blob.core.windows.net/media/MeccaBingo/SlotsAndGames/Large/enchanted-prince-4-3.jpg',
       text: 'Example Test 3',
     },
-  ]
-}
-
+  ],
+};
 
 function setup(props) {
-  return mount(<Presenter {...props} />)
+  return mount(<Presenter {...props} />);
 }
 
 describe('Presenter Component', () => {
   it('Should render Loading message', () => {
-    const wrapper = setup(props)
-    expect(wrapper.find('h1').length).toEqual(1)
-  })
-})
-
+    const wrapper = setup(props);
+    expect(wrapper.find('h1').length).toEqual(1);
+  });
+});
