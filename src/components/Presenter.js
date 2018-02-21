@@ -25,17 +25,39 @@ const PresenterDirection = {
   LEFT: 3,
 }
 
-const DEFAULT_STARTING_TIMEOUT = 1000
-const DEFAULT_ANIMATION_DURATION = 1000
-const DEFAULT_TIMEOUT = 4000
+// STYLE TO DISPLAY THE SLIDE
+const NORMAL_STYLE = {
+  opacity: 1,
+  left: 0,
+  right: 0,
+  top: 0,
+  bottom: 0,
+}
 
+// STYLE TO START SLIDE
+const ENTER_STYLE = {
+  opacity: 0,
+  left: -50,
+  right: -50,
+  top:  -50,
+  bottom: -50,
+}
+
+// STYLE TO FINISH SLIDE
+const LEFT_STYLE = {
+  opacity: 0,
+  left: 50,
+  right: 50,
+  top:  50,
+  bottom: 50,
+}
 
 class PresenterItem extends React.Component {
   render() {
-    const { item, transitionDuration, className } = this.props
+    const { item, transitionDuration, enterStyle, stateStyle, className } = this.props
     if (item) {
       return (
-        <div style={{ transition: `${transitionDuration || DEFAULT_ANIMATION_DURATION}ms`}} className={"item fade " + className} >
+        <div style={{ transition: `${transitionDuration}ms`, ...enterStyle, ...stateStyle}} className="item" >
           <img src={item.image} />
           <div className="text">
             <p>{item.text}</p>
@@ -53,7 +75,7 @@ class Presenter extends React.Component {
       index: -1,
       status: PresenterStatus.INIT,
       current: null,
-      direction: props.direction || PresenterDirection.RIGHT,
+      direction: props.direction,
     }
     this.timerChange = null
 
@@ -68,16 +90,12 @@ class Presenter extends React.Component {
     this.handlePrev = this.handlePrev.bind(this)
   }
 
-  componentWillMount() {
-    const { items } = this.props
-  }
-
   componentDidMount() {
     const { startTimeout } = this.props
     this.setState({
       status: PresenterStatus.LOADED,
     })
-    this.timerStart = setTimeout( this.handleStart, startTimeout || DEFAULT_STARTING_TIMEOUT )
+    this.timerStart = setTimeout(this.handleStart, startTimeout)
   }
 
   handleStart() {
@@ -146,7 +164,6 @@ class Presenter extends React.Component {
     }
   }
 
-
   handleEnd () {
     this.setState({
       current: {
@@ -164,7 +181,7 @@ class Presenter extends React.Component {
           status: this.state.current.status+1
         }
       })
-    }, 20)
+    }, 1)
   }
 
 
@@ -193,7 +210,7 @@ class Presenter extends React.Component {
       if (this.timerChange) {
         clearTimeout(this.timerChange)
       }
-      this.timerChange = setTimeout(this.handleEnd, timeout || DEFAULT_TIMEOUT )
+      this.timerChange = setTimeout(this.handleEnd, timeout)
     }
 
   }
@@ -242,30 +259,34 @@ class Presenter extends React.Component {
           status: ns,
         }
       }, () => {
-        if (ns === ItemStatus.ENTERED) {
-          this.timerChange = setTimeout(this.handleEnd, timeout || DEFAULT_TIMEOUT )
-        } else if (ns === ItemStatus.LEFT) {
-          this.trickyEnd()
+        if (this.state.status === PresenterStatus.PLAYING) {
+          if (ns === ItemStatus.ENTERED) {
+            this.timerChange = setTimeout(this.handleEnd, timeout)
+          } else if (ns === ItemStatus.LEFT) {
+            this.trickyEnd()
+          }
         }
       })
     }
   }
   
   render() {
-    const { current, next, status, rightBar } = this.state
-    const { transitionDuration } = this.props
+    const { current, next, status, } = this.state
+    const { transitionDuration, rightBar, enterStyle, normalStyle, leftStyle } = this.props
     if (current && current.status >= ItemStatus.LOADED) {
-      var st = ''
+      var st = {}
       if (current.status === ItemStatus.ENTERING || current.status === ItemStatus.ENTERED) {
-        st = 'start'
+        st = normalStyle
       } else if (current.status === ItemStatus.LEAVING || current.status === ItemStatus.LEFT) {
-        st = 'end'
+        st = leftStyle
       }
       return (
         <div className="presenter"> 
           <div className="viewer">
-            <PresenterItem transitionDuration={transitionDuration} ref={(node) => this.setupNode(node, current)} item={current.item} 
-              className={st}/>
+            <PresenterItem transitionDuration={transitionDuration} 
+              enterStyle={enterStyle}
+              stateStyle={st} ref={(node) => this.setupNode(node, current)} item={current.item} 
+            />
           </div>
           <div className="bar">
             <div className="bar-left">
@@ -290,6 +311,10 @@ class Presenter extends React.Component {
 }
 
 Presenter.propTypes = {
+  normalStyle: PropTypes.object,
+  enterStyle: PropTypes.object,
+  leftStyle: PropTypes.object,
+
   startTimeout: PropTypes.number,
   transitionDuration: PropTypes.number,
   timeout: PropTypes.number,
@@ -300,11 +325,15 @@ Presenter.propTypes = {
   })).isRequired
 }
 
+
 Presenter.defaultProps = {
   direction: PresenterDirection.RIGHT,
-  startTimeout: DEFAULT_STARTING_TIMEOUT,
-  transitionDuration: DEFAULT_ANIMATION_DURATION,
-  timeout: DEFAULT_TIMEOUT,
+  startTimeout: 1000,
+  transitionDuration: 1000,
+  timeout: 1000,
+  normalStyle: NORMAL_STYLE,
+  enterStyle: ENTER_STYLE,
+  leftStyle: LEFT_STYLE,
 }
 
 export default Presenter
