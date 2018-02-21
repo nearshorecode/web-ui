@@ -9,4 +9,5 @@ install:
 script:
   - yarn
   - yarn test
+  - yarn storybook:build
   - codecov
