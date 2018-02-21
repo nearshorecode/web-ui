@@ -11,9 +11,7 @@ class TechIcon extends PureComponent {
 
     const src = `${IMAGE_PATH}${name}.png`;
 
-    return (
-      <img src={TECH_ICONS[name]} alt={src} style={{...style,...size}}/>
-    );
+    return <img src={TECH_ICONS[name]} alt={src} style={{ ...style, ...size }} />;
   }
 }
 
@@ -23,7 +21,7 @@ TechIcon.propTypes = {
     width: PropTypes.string,
     height: PropTypes.string,
   }),
-  style: PropTypes.object
+  style: PropTypes.object,
 };
 
 TechIcon.defaultProps = {

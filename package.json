@@ -27,6 +27,7 @@
     "file-loader": "1.1.5",
     "fs-extra": "3.0.1",
     "html-webpack-plugin": "2.29.0",
+    "husky": "^0.14.3",
     "jest": "20.0.4",
     "object-assign": "4.1.1",
     "postcss-flexbugs-fixes": "3.2.0",
@@ -45,16 +46,21 @@
     "whatwg-fetch": "2.0.3"
   },
   "scripts": {
-    "start": "node scripts/start.js",
     "build": "node scripts/build.js",
+    "format": "prettier --config ./.prettierrc --write ./{src,stories}/**/*.js",
+    "start": "node scripts/start.js",
     "prelib": "node_modules/.bin/rimraf ./lib",
     "lib": "babel src/components/ --out-dir lib --copy-files",
     "postlib": "cp -rf package.json lib",
     "storybook": "start-storybook -p 9001 -c ./config/storybook",
     "storybook:build": "build-storybook -c ./config/storybook -o build/storybook",
     "test": "node scripts/test.js --env=jsdom",
-    "test:coverage": "node scripts/test.js --env=jsdom && codecov",
-    "precommit": "pretty-quick --staged"
+    "test:coverage": "node scripts/test.js --env=jsdom && codecov"
+  },
+  "husky": {
+    "hooks" : {
+      "pre-commit": "yarn test && pretty-quick --staged"
+    }
   },
   "devDependencies": {
     "@storybook/addon-info": "^3.3.13",

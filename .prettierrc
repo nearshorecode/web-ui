@@ -1,4 +1,7 @@
 {
-  "printWidth": 150,
-  "trailingComma": "es5"
+  "printWidth": 180,
+  "trailingComma": "es5",
+  "singleQuote": true,
+  "jsxBracketSameLine": true,
+  "semi": true
 }

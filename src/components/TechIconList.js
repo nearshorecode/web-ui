@@ -7,43 +7,43 @@ import './TechIconList.css';
 
 export const FLOWS = {
   vertical: 'vertical',
-  horizontal: 'horizontal'
+  horizontal: 'horizontal',
 };
 
 class TechIconList extends Component {
   mapIcons = () => {
     const { icons } = this.props;
 
-    return icons.map( (icon, idx) => {
+    return icons.map((icon, idx) => {
       const { name, width, height, style } = icon;
-      return (
-        <TechIcon name={name} size={{width, height}} key={idx} style={style}/>
-      );
+      return <TechIcon name={name} size={{ width, height }} key={idx} style={style} />;
     });
-  }
+  };
 
   getFlow = () => {
     const { flow } = this.props;
 
-    return flow === FLOWS.vertical ? 'column' : 'row' ;
-  }
+    return flow === FLOWS.vertical ? 'column' : 'row';
+  };
 
   render() {
     return (
-      <div className={"wui-tech-icon-list"} style={{flexDirection: this.getFlow()}}>
-        { this.mapIcons() }
+      <div className={'wui-tech-icon-list'} style={{ flexDirection: this.getFlow() }}>
+        {this.mapIcons()}
       </div>
     );
   }
 }
 
 TechIconList.propTypes = {
-  icons: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string,
-    width: PropTypes.string,
-    height: PropTypes.string,
-    style: PropTypes.object,
-  })).isRequired,
+  icons: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+      width: PropTypes.string,
+      height: PropTypes.string,
+      style: PropTypes.object,
+    })
+  ).isRequired,
   flow: PropTypes.string,
 };
 

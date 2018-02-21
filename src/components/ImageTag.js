@@ -9,7 +9,7 @@ class ImageTag extends PureComponent {
 
     return (
       <div className="ImageTag">
-        <img src={imageSrc} alt={imageSrc} style={{...size}}/>
+        <img src={imageSrc} alt={imageSrc} style={{ ...size }} />
         <span>{tag}</span>
       </div>
     );
