@@ -15,11 +15,11 @@ describe('Card Component', () => {
  
   it('should render children', () => {
     const wrapper = mount(
-      <CardList />
+      <CardList>
+        <Card />
+      </CardList>
     );
-
     const children = wrapper.find(CardList).find(Card);
-
-    expect(children.length).toBe(2);
-  })
+    expect(children.length).toBe(1);
+  });
 });

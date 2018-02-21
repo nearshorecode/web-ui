@@ -53,7 +53,7 @@ storiesOf('Web UI Components', module)
       () => (
         <Card roundness="50%"
               alignment="top"
-              style={{width: '250px', height: '250px', 'background-color': '#2F7FB9'}}
+              style={{backgroundColor: '#2F7FB9'}}
               text="APPLICATION DEVELOPMENT" />
       )
     )
@@ -64,16 +64,16 @@ storiesOf('Web UI Components', module)
       () => (
         <CardList>
           <Card alignment="top"
-                style={{'background-color': '#2F7FB9'}}
+                style={{backgroundColor: '#2F7FB9'}}
                 text="APPLICATION DEVELOPMENT" />
         
-          <Card roundness='25%'
-                style={{'background-color': '#1B9B82'}}
+          <Card roundness="25%"
+                style={{width: '200px', height: '200px', backgroundColor: '#1B9B82'}}
                 text="APPLICATION MAINTENANCE" />
           
           <Card roundness="50%"
-                alignment='bottom'
-                style={{'background-color': '#394990'}}
+                alignment="bottom"
+                style={{backgroundColor: '#394990'}}
                 text="MOBILE DEVELOPMENT" />
 
           <Card alignment="middle"
