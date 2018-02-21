@@ -49,7 +49,7 @@ storiesOf('Web UI Components', module)
   );
 
   .add('Card', 
-    withInfo({ text: 'Card renders an Card ...' })(
+    withInfo({ text: 'Card renders a Card ...' })(
       () => (
         <Card roundness="50%"
               alignment="top"
