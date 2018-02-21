@@ -55,12 +55,8 @@
     "storybook": "start-storybook -p 9001 -c ./config/storybook",
     "storybook:build": "build-storybook -c ./config/storybook -o build/storybook",
     "test": "node scripts/test.js --env=jsdom",
-    "test:coverage": "node scripts/test.js --env=jsdom && codecov"
-  },
-  "husky": {
-    "hooks" : {
-      "pre-commit": "npm run test && npm run format"
-    }
+    "test:coverage": "node scripts/test.js --env=jsdom && codecov",
+    "precommit": "npm run format"
   },
   "devDependencies": {
     "@storybook/addon-info": "^3.3.13",
