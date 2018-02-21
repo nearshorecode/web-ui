@@ -35,7 +35,7 @@ Card.propTypes = {
     width: PropTypes.string,
     height: PropTypes.string,
   }),
-  text: PropTypes.string.isRequired,
+  text: PropTypes.string,
 };
 
 Card.defaultProps = {
