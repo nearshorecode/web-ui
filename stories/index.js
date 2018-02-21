@@ -3,7 +3,7 @@ import { storiesOf, addDecorator } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withInfo } from '@storybook/addon-info';
 
-import { ImageTag, TechIcon, TechIconList, Card, CardList } from '../src/components';
+import { Card, CardList, ImageTag, TechIcon, TechIconList } from '../src/components';
 
 import { Bouncer } from '../src/components/Animators';
 
