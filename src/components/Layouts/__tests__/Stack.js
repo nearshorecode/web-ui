@@ -12,7 +12,7 @@ const DEFAULT_PROPS = {
 describe('ImageTag Component', () => {
   it('renders without crashing', () => {
     const div = document.createElement('div');
-    ReactDOM.render(<Stack/>, div);
+    ReactDOM.render(<Stack />, div);
     ReactDOM.unmountComponentAtNode(div);
   });
 
@@ -22,28 +22,28 @@ describe('ImageTag Component', () => {
     expect(ORIENTATION).toEqual({
       vertical: 'vertical',
       horizontal: 'horizontal',
-    })
+    });
   });
 
   it('should render with default props', () => {
-    const wrapper = mount(<Stack/>);
+    const wrapper = mount(<Stack />);
 
     expect(wrapper.find(Stack).props().orientation).toBe('vertical');
     expect(wrapper.find(Stack).children().length).toBe(1);
-  })
+  });
 
   it('should render with props', () => {
-    const wrapper = mount(<Stack {...DEFAULT_PROPS}/>);
+    const wrapper = mount(<Stack {...DEFAULT_PROPS} />);
 
     expect(wrapper.find(Stack).props().orientation).toBe('horizontal');
     expect(wrapper.find(Stack).children().length).toBe(1);
-  })
+  });
 
   it('should render children', () => {
     const wrapper = mount(
       <Stack>
-        <div/>
-        <span/>
+        <div />
+        <span />
       </Stack>
     );
 
@@ -52,5 +52,5 @@ describe('ImageTag Component', () => {
     expect(children.length).toBe(2);
     expect(children[0].type).toBe('div');
     expect(children[1].type).toBe('span');
-  })
+  });
 });
