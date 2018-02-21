@@ -3,7 +3,7 @@ import { storiesOf, addDecorator } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withInfo } from '@storybook/addon-info';
 
-import { ImageTag, TechIcon, TechIconList } from '../src/components';
+import { Card, CardList, ImageTag, TechIcon, TechIconList } from '../src/components';
 
 import { Bouncer } from '../src/components/Animators';
 
@@ -45,6 +45,32 @@ storiesOf('Web UI Components', module)
     'Tech Icon List',
     withInfo({ text: 'ImageTag renders an Image along with its Tag name by using a remote url for images' })(() => (
       <TechIconList icons={[{ name: 'react' }, { name: 'redux' }, { name: 'mongodb' }]} />
+    ))
+  )
+
+  .add(
+    'Card',
+    withInfo({ text: 'Card renders a Card ...' })(() => (
+      <Card roundness="50%" alignment="top" style={{ backgroundColor: '#2F7FB9' }} text="APPLICATION DEVELOPMENT" />
+    ))
+  )
+
+  .add(
+    'CardList',
+    withInfo({ text: 'CardList renders a list of Cards ...' })(() => (
+      <CardList>
+        <Card alignment="top" style={{ backgroundColor: '#2F7FB9' }} text="APPLICATION DEVELOPMENT" />
+
+        <Card
+          roundness="25%"
+          style={{ width: '200px', height: '200px', backgroundColor: '#1B9B82' }}
+          text="APPLICATION MAINTENANCE"
+        />
+
+        <Card roundness="50%" alignment="bottom" style={{ backgroundColor: '#394990' }} text="MOBILE DEVELOPMENT" />
+
+        <Card alignment="middle" text="UX DESIGN" />
+      </CardList>
     ))
   );
 
