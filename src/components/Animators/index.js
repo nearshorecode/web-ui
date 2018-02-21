@@ -1,5 +1,3 @@
 import Bouncer from './Bouncer';
 
-export {
-  Bouncer,
-};
+export { Bouncer };

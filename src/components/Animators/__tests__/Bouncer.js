@@ -8,7 +8,7 @@ import { mount } from 'enzyme';
 describe('ImageTag Component', () => {
   it('renders without crashing', () => {
     const div = document.createElement('div');
-    ReactDOM.render(<Bouncer/>, div);
+    ReactDOM.render(<Bouncer />, div);
     ReactDOM.unmountComponentAtNode(div);
   });
 
@@ -21,5 +21,5 @@ describe('ImageTag Component', () => {
 
     expect(domNode.className).toBe('wui-bouncer');
     expect(wrapper.find(Bouncer).props().children).toBe(children);
-  })
+  });
 });
