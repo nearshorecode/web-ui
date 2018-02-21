@@ -18,17 +18,28 @@ addDecorator(story => <div className="container">{story()}</div>);
 storiesOf('Web UI Components', module)
   .add(
     'Image Tag',
-    withInfo({ text: 'ImageTag renders an Image along with its Tag name' })(() => <ImageTag imageSrc={react} tag="This is a test tag" size={{ width: '250px', height: '250px' }} />)
+    withInfo({ text: 'ImageTag renders an Image along with its Tag name' })(() => (
+      <ImageTag imageSrc={react} tag="This is a test tag" size={{ width: '250px', height: '250px' }} />
+    ))
   )
 
   .add(
     'Image Tag Remote Url',
     withInfo({ text: 'ImageTag renders an Image along with its Tag name by using a remote url for images' })(() => (
-      <ImageTag imageSrc="https://www.w3schools.com/jsref/img_pulpit.jpg" tag="This is a test tag for remote image" size={{ width: '250px', height: '250px' }} />
+      <ImageTag
+        imageSrc="https://www.w3schools.com/jsref/img_pulpit.jpg"
+        tag="This is a test tag for remote image"
+        size={{ width: '250px', height: '250px' }}
+      />
     ))
   )
 
-  .add('Tech Icon', withInfo({ text: 'ImageTag renders an Image along with its Tag name by using a remote url for images' })(() => <TechIcon name="react" />))
+  .add(
+    'Tech Icon',
+    withInfo({ text: 'ImageTag renders an Image along with its Tag name by using a remote url for images' })(() => (
+      <TechIcon name="react" />
+    ))
+  )
 
   .add(
     'Tech Icon List',
