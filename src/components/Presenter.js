@@ -20,36 +20,33 @@ const ItemStatus = {
   LEFT: 5,
 }
 
-const PresenterDirection = {
+export const PresenterDirection = {
   RIGHT: 2,
   LEFT: 3,
 }
 
+
+const TransitionHorizontalSlide = {
 // STYLE TO DISPLAY THE SLIDE
-const NORMAL_STYLE = {
-  opacity: 1,
-  left: 0,
-  right: 0,
-  top: 0,
-  bottom: 0,
-}
+  normal: {
+    opacity: 1,
+    left: 0,
+    right: 0,
+  },
 
 // STYLE TO START SLIDE
-const ENTER_STYLE = {
-  opacity: 0,
-  left: -50,
-  right: -50,
-  top:  -50,
-  bottom: -50,
-}
+  enter: {
+    opacity: 0,
+    left: '-100%',
+    right: '100%',
+  },
 
 // STYLE TO FINISH SLIDE
-const LEFT_STYLE = {
-  opacity: 0,
-  left: 50,
-  right: 50,
-  top:  50,
-  bottom: 50,
+  left: {
+    opacity: 0,
+    left: '100%',
+    right: '-100%',
+  }
 }
 
 class PresenterItem extends React.Component {
@@ -57,7 +54,7 @@ class PresenterItem extends React.Component {
     const { item, transitionDuration, enterStyle, stateStyle, className } = this.props
     if (item) {
       return (
-        <div style={{ transition: `${transitionDuration}ms`, ...enterStyle, ...stateStyle}} className="item" >
+        <div style={stateStyle} className={"item " + className} >
           <img src={item.image} />
           <div className="text">
             <p>{item.text}</p>
@@ -181,7 +178,7 @@ class Presenter extends React.Component {
           status: this.state.current.status+1
         }
       })
-    }, 1)
+    }, 20)
   }
 
 
@@ -224,7 +221,6 @@ class Presenter extends React.Component {
         current: {
           item: next.item,
           status: ItemStatus.LOADED,
-          node: null,
         }
       })
     }, 20)
@@ -232,7 +228,7 @@ class Presenter extends React.Component {
 
   setupNode(node) {
     const { current } = this.state
-    if (node && !current.node) {
+    if (node && !current.node && current.status === ItemStatus.LOADED ) {
       const DOMNode = ReactDOM.findDOMNode(node)
       this.setState({
         current: {
@@ -269,23 +265,45 @@ class Presenter extends React.Component {
       })
     }
   }
+
+  getStyle(status) {
+    const { transitionDuration, transitions} = this.props
+    switch(status) {
+      case ItemStatus.LOADED: 
+        return {
+          transition: 'none',
+          ...transitions.enter,
+        }
+      case ItemStatus.LEFT: 
+        return {
+          ...transitions.enter,
+          transition: 'none'
+        }
+      case ItemStatus.ENTERING:
+        return {
+          transition: transitionDuration + 'ms',
+          ...transitions.normal,
+        }
+      case ItemStatus.ENTERED:
+        return transitions.normal
+      case ItemStatus.LEAVING:
+        return {
+          transition: transitionDuration + 'ms',
+          ...transitions.left
+        }
+    }
+  }
   
   render() {
     const { current, next, status, } = this.state
-    const { transitionDuration, rightBar, enterStyle, normalStyle, leftStyle } = this.props
+    const { transitionDuration, rightBar } = this.props
     if (current && current.status >= ItemStatus.LOADED) {
-      var st = {}
-      if (current.status === ItemStatus.ENTERING || current.status === ItemStatus.ENTERED) {
-        st = normalStyle
-      } else if (current.status === ItemStatus.LEAVING || current.status === ItemStatus.LEFT) {
-        st = leftStyle
-      }
+      const st = this.getStyle(current.status)
       return (
         <div className="presenter"> 
           <div className="viewer">
             <PresenterItem transitionDuration={transitionDuration} 
-              enterStyle={enterStyle}
-              stateStyle={st} ref={(node) => this.setupNode(node, current)} item={current.item} 
+              stateStyle={st} ref={(node) => this.setupNode(node)} item={current.item} 
             />
           </div>
           <div className="bar">
@@ -328,12 +346,10 @@ Presenter.propTypes = {
 
 Presenter.defaultProps = {
   direction: PresenterDirection.RIGHT,
-  startTimeout: 1000,
-  transitionDuration: 1000,
+  startTimeout: 500,
+  transitionDuration: 250,
   timeout: 1000,
-  normalStyle: NORMAL_STYLE,
-  enterStyle: ENTER_STYLE,
-  leftStyle: LEFT_STYLE,
+  transitions: TransitionHorizontalSlide
 }
 
 export default Presenter
