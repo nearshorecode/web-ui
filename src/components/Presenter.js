@@ -51,10 +51,10 @@ const TransitionHorizontalSlide = {
 
 class PresenterItem extends React.Component {
   render() {
-    const { item, transitionDuration, enterStyle, stateStyle, className } = this.props
+    const { item, transitionDuration, enterStyle, stateStyle} = this.props
     if (item) {
       return (
-        <div style={stateStyle} className={"item " + className} >
+        <div style={stateStyle} className="item" >
           <img src={item.image} />
           <div className="text">
             <p>{item.text}</p>
@@ -329,10 +329,7 @@ class Presenter extends React.Component {
 }
 
 Presenter.propTypes = {
-  normalStyle: PropTypes.object,
-  enterStyle: PropTypes.object,
-  leftStyle: PropTypes.object,
-
+  transitions: PropTypes.object,
   startTimeout: PropTypes.number,
   transitionDuration: PropTypes.number,
   timeout: PropTypes.number,
