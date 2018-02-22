@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
+import PresenterItem, { ItemStatus } from './PresenterItem';
 import './Presenter.css';
 
 const PresenterStatus = {
@@ -9,15 +10,6 @@ const PresenterStatus = {
   PLAYING: 2,
   PAUSED: 3,
   STOPPED: 4,
-};
-
-const ItemStatus = {
-  INIT: 0,
-  LOADED: 1,
-  ENTERING: 2,
-  ENTERED: 3,
-  LEAVING: 4,
-  LEFT: 5,
 };
 
 export const PresenterDirection = {
@@ -48,22 +40,6 @@ const TransitionHorizontalSlide = {
   },
 };
 
-class PresenterItem extends React.Component {
-  render() {
-    const { item, transitionDuration, enterStyle, stateStyle } = this.props;
-    if (item) {
-      return (
-        <div style={stateStyle} className="item">
-          <img src={item.image} />
-          <div className="text">
-            <p>{item.text}</p>
-          </div>
-        </div>
-      );
-    } else return null;
-  }
-}
-
 class Presenter extends React.Component {
   constructor(props) {
     super(props);
@@ -74,8 +50,6 @@ class Presenter extends React.Component {
       direction: props.direction,
     };
     this.timerChange = null;
-
-    this.setupNode = this.setupNode.bind(this);
 
     this.handleStart = this.handleStart.bind(this);
     this.handleEnd = this.handleEnd.bind(this);
@@ -140,23 +114,23 @@ class Presenter extends React.Component {
     });
   }
 
-  loadNextItem(dir = null) {
-    const { current, index, direction } = this.state;
-    const { items } = this.props;
-
-    var nidx = index;
-
-    const d = dir ? dir : direction;
-
-    if (d === PresenterDirection.RIGHT) {
-      nidx = index + 1 < items.length ? index + 1 : 0;
-    } else {
-      nidx = index - 1 >= 0 ? index - 1 : items.length - 1;
+  getNextIndex(current, total, direction) {
+    if (direction === PresenterDirection.RIGHT) {
+      return current + 1 < total ? current + 1 : 0;
     }
 
+    return current - 1 >= 0 ? current - 1 : total - 1;
+  }
+
+  loadNextItem(direction = null) {
+    const { current, index, direction: currentDirection } = this.state;
+    const { items } = this.props;
+
+    const newIndex = this.getNextIndex(index, items.length, direction || currentDirection);
+
     return {
-      index: nidx,
-      item: items[nidx],
+      index: newIndex,
+      item: items[newIndex],
     };
   }
 
@@ -206,6 +180,7 @@ class Presenter extends React.Component {
       }
       this.timerChange = setTimeout(this.handleEnd, timeout);
     }
+    newIndex;
   }
 
   trickyEnd() {
@@ -246,20 +221,20 @@ class Presenter extends React.Component {
     const { current: { node, status } } = this.state;
     if (status === ItemStatus.ENTERING || status === ItemStatus.LEAVING) {
       const { timeout } = this.props;
-      const ns = status + 1;
+      const newStatus = status + 1;
 
       this.setState(
         {
           current: {
             ...this.state.current,
-            status: ns,
+            status: newStatus,
           },
         },
         () => {
           if (this.state.status === PresenterStatus.PLAYING) {
-            if (ns === ItemStatus.ENTERED) {
+            if (newStatus === ItemStatus.ENTERED) {
               this.timerChange = setTimeout(this.handleEnd, timeout);
-            } else if (ns === ItemStatus.LEFT) {
+            } else if (newStatus === ItemStatus.LEFT) {
               this.trickyEnd();
             }
           }
@@ -327,9 +302,8 @@ class Presenter extends React.Component {
           </div>
         </div>
       );
-    } else {
-      return <h1>Loading...</h1>;
     }
+    return <h1>Loading...</h1>;
   }
 }
 
