@@ -17,7 +17,7 @@ class Card extends PureComponent {
       <div
         className="Card"
         style={{
-          borderRadius: roundness ? roundness : 0,
+          borderRadius: roundness,
           ...style,
           ...size,
         }}>

@@ -27,8 +27,10 @@ class TechIconList extends Component {
   };
 
   render() {
+    const flow = this.getFlow();
+
     return (
-      <div className={'wui-tech-icon-list'} style={{ flexDirection: this.getFlow() }}>
+      <div className="wui-tech-icon-list" style={{ flexDirection: flow }}>
         {this.mapIcons()}
       </div>
     );
