@@ -90,7 +90,10 @@ storiesOf('Animators', module)
 
   .add('Bouncer with component', withInfo({ text: 'Bounce a text' })(() => <Bouncer>Bounce this!</Bouncer>))
 
-  .add('Tranisionable HOC', withInfo('Transition high order component, transition a component')(() => <Fader />));
+  .add(
+    'Transitionable HOC (Fader)',
+    withInfo('Transition high order component, transition a component')(() => <Fader />)
+  );
 
 storiesOf('Layouts', module).add(
   'Stack',
