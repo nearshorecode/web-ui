@@ -19,7 +19,6 @@ const transitionable = (transition, time) => WrappedComponent =>
         phase: 0,
         currentTransition: {
           ...transition[TRANSITION_PHASES[0]],
-          transition: `${time}ms`,
         },
       };
     }
