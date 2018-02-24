@@ -10,6 +10,7 @@ import { Bouncer } from '../src/components/Animators';
 import { Stack } from '../src/components/Layouts';
 
 import Scrollable from './TestComponents/Scrollable';
+import Fader from './TestComponents/Fader';
 
 import './css/index.css';
 
@@ -87,7 +88,9 @@ storiesOf('Animators', module)
     ))
   )
 
-  .add('Bouncer with component', withInfo({ text: 'Bounce a text' })(() => <Bouncer>Bounce this!</Bouncer>));
+  .add('Bouncer with component', withInfo({ text: 'Bounce a text' })(() => <Bouncer>Bounce this!</Bouncer>))
+
+  .add('Tranisionable HOC', withInfo('Transition high order component, transition a component')(() => <Fader />));
 
 storiesOf('Layouts', module).add(
   'Stack',

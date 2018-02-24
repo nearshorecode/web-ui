@@ -1,3 +1,5 @@
 import Bouncer from './Bouncer';
 
-export { Bouncer };
+import transitionable from './transitionable';
+
+export { Bouncer, transitionable };
