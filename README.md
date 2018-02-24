@@ -1,5 +1,7 @@
 [![Build Status](https://travis-ci.org/nearshorecode/web-ui.svg?branch=master)](https://travis-ci.org/nearshorecode/web-ui)
 [![codecov](https://codecov.io/gh/nearshorecode/web-ui/branch/master/graph/badge.svg)](https://codecov.io/gh/nearshorecode/web-ui)
+[![npm version](https://badge.fury.io/js/%40nearshorecode%2Fweb-ui.svg)](https://badge.fury.io/js/%40nearshorecode%2Fweb-ui)
+![prettier](https://img.shields.io/badge/styled%20with-prettier-ff69b4.svg?style=flat-square)
 
 # Default Logs
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
