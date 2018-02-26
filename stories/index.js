@@ -9,6 +9,8 @@ import { Bouncer } from '../src/components/Animators';
 
 import { Stack } from '../src/components/Layouts';
 
+import Scrollable from './TestComponents/Scrollable';
+
 import './css/index.css';
 
 import react from '../src/components/assets/tech-icons/react.png';
@@ -105,4 +107,9 @@ storiesOf('Layouts', module).add(
       </div>
     </Stack>
   ))
+);
+
+storiesOf('High Order Components', module).add(
+  'Scrollable',
+  withInfo({ text: 'Scrollable High Order Component' })(() => <Scrollable />)
 );
