@@ -66,7 +66,7 @@ storiesOf('Web UI Components', module)
           style={{ width: '200px', height: '200px', backgroundColor: '#1B9B82' }}
           text="APPLICATION MAINTENANCE"
           onClick={() => {
-            alert('"Customized message"');
+            alert('Ouch!');
           }}
         />
 
