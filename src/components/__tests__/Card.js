@@ -4,10 +4,11 @@ import Card from '../Card';
 
 import { mount } from 'enzyme';
 
-const DEFAULT_PROPS = {
+const PASSED_PROPS = {
   roundness: '25%',
   alignment: 'bottom',
   text: 'Hi!',
+  onClick: jest.fn(),
 };
 
 const STYLE = {
@@ -22,17 +23,17 @@ const SIZE = {
 describe('Card Component', () => {
   it('renders without crashing', () => {
     const div = document.createElement('div');
-    ReactDOM.render(<Card {...DEFAULT_PROPS} />, div);
+    ReactDOM.render(<Card {...PASSED_PROPS} />, div);
     ReactDOM.unmountComponentAtNode(div);
   });
 
   it('contains only one child tag', () => {
-    const wrapper = mount(<Card {...DEFAULT_PROPS} />);
+    const wrapper = mount(<Card {...PASSED_PROPS} />);
     expect(wrapper.find('.Card').children().length).toBe(1);
   });
 
   it('contains only an element for content', () => {
-    const wrapper = mount(<Card {...DEFAULT_PROPS} />);
+    const wrapper = mount(<Card {...PASSED_PROPS} />);
     expect(wrapper.find('.content').length).toBe(1);
   });
 
@@ -58,9 +59,9 @@ describe('Card Component', () => {
   });
 
   it('should add style prop to child when passed', () => {
-    const wrapper = mount(<Card {...DEFAULT_PROPS} />);
+    const wrapper = mount(<Card {...PASSED_PROPS} />);
     const props = wrapper.find('.content').props();
-    expect(props.style.verticalAlign).toBe(`${DEFAULT_PROPS.alignment}`);
+    expect(props.style.verticalAlign).toBe(`${PASSED_PROPS.alignment}`);
   });
 
   it('should override bgColor, width and height if style and size props are present', () => {
@@ -69,5 +70,36 @@ describe('Card Component', () => {
     expect(props.style.backgroundColor).toBe(`${STYLE.backgroundColor}`);
     expect(props.style.width).toBe(`${SIZE.width}`);
     expect(props.style.height).toBe(`${SIZE.height}`);
+  });
+
+  it('should call nothing when no handler is passed', () => {
+    const wrapper = mount(<Card />);
+    wrapper.find('.Card').simulate('click');
+    wrapper.find('.Card').simulate('click');
+    wrapper.find('.Card').simulate('click');
+    expect(PASSED_PROPS.onClick.mock.calls.length).toBe(0);
+    expect(PASSED_PROPS.onClick).not.toBeCalled();
+    expect(jest.fn()).not.toBeCalled();
+  });
+
+  it('should call handler passed as prop', () => {
+    const wrapper = mount(<Card onClick={PASSED_PROPS.onClick} />);
+    wrapper.find('.Card').simulate('click');
+    wrapper.find('.Card').simulate('click');
+    wrapper.find('.Card').simulate('click');
+    expect(PASSED_PROPS.onClick).toBeCalled();
+    expect(PASSED_PROPS.onClick.mock.calls.length).toBe(3);
+  });
+
+  it("should set cursor to 'inherit' when no handler is passed", () => {
+    const wrapper = mount(<Card />);
+    const props = wrapper.find('.Card').props();
+    expect(props.style.cursor).toBe('inherit');
+  });
+
+  it("should set cursor to 'pointer' when handler is passed", () => {
+    const wrapper = mount(<Card onClick={PASSED_PROPS.onClick} />);
+    const props = wrapper.find('.Card').props();
+    expect(props.style.cursor).toBe('pointer');
   });
 });

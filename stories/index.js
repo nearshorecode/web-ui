@@ -65,11 +65,12 @@ storiesOf('Web UI Components', module)
           roundness="25%"
           style={{ width: '200px', height: '200px', backgroundColor: '#1B9B82' }}
           text="APPLICATION MAINTENANCE"
+          onClick={() => {
+            alert('Ouch!');
+          }}
         />
 
-        <Card roundness="50%" alignment="bottom" style={{ backgroundColor: '#394990' }} text="MOBILE DEVELOPMENT" />
-
-        <Card alignment="middle" text="UX DESIGN" />
+        <Card roundness="50%" alignment="bottom" text="UX DESIGN" />
       </CardList>
     ))
   );
