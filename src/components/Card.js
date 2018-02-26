@@ -10,6 +10,17 @@ const VERTICAL_ALIGN = {
 };
 
 class Card extends PureComponent {
+  handleClick = e => {
+    e.preventDefault();
+    const { onClick, text } = this.props;
+
+    if (onClick) {
+      onClick();
+    } else {
+      alert(text);
+    }
+  };
+
   render() {
     const { roundness, alignment, style, size, text } = this.props;
 
@@ -20,7 +31,8 @@ class Card extends PureComponent {
           borderRadius: roundness,
           ...style,
           ...size,
-        }}>
+        }}
+        onClick={this.handleClick}>
         <div className="content" style={{ verticalAlign: VERTICAL_ALIGN[alignment] }}>
           {text}
         </div>
@@ -38,6 +50,7 @@ Card.propTypes = {
     height: PropTypes.string,
   }),
   text: PropTypes.string,
+  onClick: PropTypes.func,
 };
 
 Card.defaultProps = {
