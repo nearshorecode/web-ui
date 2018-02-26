@@ -72,17 +72,34 @@ describe('Card Component', () => {
     expect(props.style.height).toBe(`${SIZE.height}`);
   });
 
-  it('should call alert as a default handler if onClick prop is not present', () => {
-    window.alert = jest.fn();
+  it('should call nothing when no handler is passed', () => {
     const wrapper = mount(<Card />);
     wrapper.find('.Card').simulate('click');
-    expect(window.alert).toHaveBeenCalled();
+    wrapper.find('.Card').simulate('click');
+    wrapper.find('.Card').simulate('click');
+    expect(PASSED_PROPS.onClick.mock.calls.length).toBe(0);
+    expect(PASSED_PROPS.onClick).not.toBeCalled();
+    expect(jest.fn()).not.toBeCalled();
   });
 
-  it('should call handler onClick passed as prop', () => {
+  it('should call handler passed as prop', () => {
     const wrapper = mount(<Card onClick={PASSED_PROPS.onClick} />);
     wrapper.find('.Card').simulate('click');
     wrapper.find('.Card').simulate('click');
-    expect(PASSED_PROPS.onClick.mock.calls.length).toBe(2);
+    wrapper.find('.Card').simulate('click');
+    expect(PASSED_PROPS.onClick).toBeCalled();
+    expect(PASSED_PROPS.onClick.mock.calls.length).toBe(3);
+  });
+
+  it("should set cursor to 'inherit' when no handler is passed", () => {
+    const wrapper = mount(<Card />);
+    const props = wrapper.find('.Card').props();
+    expect(props.style.cursor).toBe('inherit');
+  });
+
+  it("should set cursor to 'pointer' when handler is passed", () => {
+    const wrapper = mount(<Card onClick={PASSED_PROPS.onClick} />);
+    const props = wrapper.find('.Card').props();
+    expect(props.style.cursor).toBe('pointer');
   });
 });
