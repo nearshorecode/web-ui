@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf, addDecorator } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
 import { withInfo } from '@storybook/addon-info';
 
 import { Card, CardList, ImageTag, TechIcon, TechIconList } from '../src/components';
@@ -12,6 +11,8 @@ import { Stack } from '../src/components/Layouts';
 import './css/index.css';
 
 import react from '../src/components/assets/tech-icons/react.png';
+
+import PresenterStories from './Presenter';
 
 addDecorator(story => <div className="container">{story()}</div>);
 
@@ -106,3 +107,5 @@ storiesOf('Layouts', module).add(
     </Stack>
   ))
 );
+
+PresenterStories();
