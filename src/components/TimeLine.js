@@ -40,10 +40,12 @@ TimeLine.propTypes = {
   icon: PropTypes.string.isRequired,
   title: PropTypes.string,
   text: PropTypes.string,
+  init: PropTypes.string,
   style: PropTypes.object,
 };
 
 TimeLine.defaultProps = {
+  init: 'left',
   style: {},
 };
 
