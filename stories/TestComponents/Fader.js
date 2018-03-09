@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { transitionable } from '../../src/components/Animators';
+import { transitionable } from '../../src/components/Composables';
 
 export const FADE_TRANSITION = {
   idle: {

@@ -88,12 +88,7 @@ storiesOf('Animators', module)
     ))
   )
 
-  .add('Bouncer with component', withInfo({ text: 'Bounce a text' })(() => <Bouncer>Bounce this!</Bouncer>))
-
-  .add(
-    'Transitionable HOC (Fader)',
-    withInfo('Transition high order component, transition a component')(() => <Fader />)
-  );
+  .add('Bouncer with component', withInfo({ text: 'Bounce a text' })(() => <Bouncer>Bounce this!</Bouncer>));
 
 storiesOf('Layouts', module).add(
   'Stack',
@@ -115,7 +110,9 @@ storiesOf('Layouts', module).add(
   ))
 );
 
-storiesOf('High Order Components', module).add(
-  'Scrollable',
-  withInfo({ text: 'Scrollable High Order Component' })(() => <Scrollable />)
-);
+storiesOf('High Order Components', module)
+  .add('Scrollable', withInfo({ text: 'Scrollable High Order Component' })(() => <Scrollable />))
+  .add(
+    'Transitionable HOC (Fader)',
+    withInfo('Transition high order component, transition a component')(() => <Fader />)
+  );

@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import transitionable from '../transitionable';
-import Bouncer from '../Bouncer';
 
 import { mount } from 'enzyme';
 
@@ -20,7 +19,7 @@ const FADE_TRANSITION = {
   },
 };
 
-const Transitionable = transitionable(FADE_TRANSITION, 1000)(Bouncer);
+const Transitionable = transitionable(FADE_TRANSITION, 1000)(() => <div />);
 
 describe('transitionable High Order Component', () => {
   it('renders without crashing', () => {
