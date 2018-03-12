@@ -12,7 +12,7 @@
   align-self: center;
 }
 
-.wui-timeline-container-hr {
+.wui-hr {
   display: flex;
   flex: 1;
 }
