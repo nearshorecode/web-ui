@@ -34,7 +34,6 @@ class TimeLineText extends PureComponent {
   }
 }
 TimeLineText.propTypes = {
-  icon: PropTypes.string.isRequired,
   title: PropTypes.string,
   text: PropTypes.string,
   init: PropTypes.string,
