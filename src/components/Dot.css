@@ -1,0 +1,12 @@
+.wui-dot {
+  background: grey;
+  display: inline-block;
+  padding: 6px;
+  margin-right: 12px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.wui-dot-active {
+  background: #09b092;
+}
