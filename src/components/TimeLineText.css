@@ -1,0 +1,22 @@
+.wui-timeline-container {
+  display: flex;
+  justify-content: space-between;
+  text-align: justify;
+}
+
+.wui-timeline-container div {
+  width: 80%;
+}
+
+.wui-timeline-container span {
+  align-self: center;
+}
+
+.wui-hr {
+  display: flex;
+  flex: 1;
+}
+
+.wui-hr hr {
+  flex-grow: 1;
+}
