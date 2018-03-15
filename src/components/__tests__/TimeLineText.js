@@ -17,15 +17,6 @@ describe('TimeLineText Component', () => {
     ReactDOM.render(<TimeLineText {...DEFAULT_PROPS} />, div);
     ReactDOM.unmountComponentAtNode(div);
   });
-  it('should render children', () => {
-    const wrapper = mount(
-      <TimeLineText {...DEFAULT_PROPS}>
-        <div />
-      </TimeLineText>
-    );
-    const children = wrapper.find(TimeLineText);
-    expect(children.length).toBe(1);
-  });
   it('Should add style prop when passed', () => {
     const wrapper = mount(<TimeLineText {...DEFAULT_PROPS} style={{ fontSize: '30px' }} />);
     const props = wrapper.props();

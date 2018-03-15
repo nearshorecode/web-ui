@@ -17,6 +17,6 @@
   flex: 1;
 }
 
-hr {
+.wui-hr hr {
   flex-grow: 1;
 }
