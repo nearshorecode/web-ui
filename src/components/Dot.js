@@ -1,9 +1,27 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import './Dot.css';
 
-const Dot = ({ id, active, dotClick }) => {
-  let name = active ? 'wui-dot wui-dot-active' : 'wui-dot';
-  return <div data-id={id} className={name} onClick={e => dotClick(parseInt(e.target.getAttribute('data-id')))} />;
+class Dot extends PureComponent {
+  getActive = () => {
+    const { active } = this.props;
+    return active ? 'dot active' : 'dot';
+  };
+  render() {
+    const { id, active, dotClick } = this.props;
+    const name = this.getActive();
+    return <div data-id={id} className={name} onClick={e => dotClick(id)} />;
+  }
+}
+
+Dot.propTypes = {
+  id: PropTypes.number,
+  active: PropTypes.bool,
+  dotClick: PropTypes.func,
+};
+
+Dot.defaultProps = {
+  active: false,
 };
 
 export default Dot;
