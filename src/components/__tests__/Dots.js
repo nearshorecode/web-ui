@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Dots from '../Dots';
+import Dot from '../Dot';
 import { mount } from 'enzyme';
 
 const QUANTITY = 2;
@@ -12,8 +13,7 @@ describe('Dots Component', () => {
     ReactDOM.unmountComponentAtNode(div);
   });
   it('checks quantity', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<Dots quantity={QUANTITY} />, div);
-    ReactDOM.unmountComponentAtNode(div);
+    const wrapper = mount(<Dots quantity={QUANTITY} />);
+    expect(wrapper.find(Dot).length).toBe(2);
   });
 });

@@ -15,10 +15,15 @@ class Dots extends PureComponent {
   }
 }
 
-Dot.propTypes = {
+Dots.propTypes = {
   index: PropTypes.number,
   quantity: PropTypes.number,
   dotClick: PropTypes.func,
+};
+
+Dots.defaultProps = {
+  index: 0,
+  quantity: 0,
 };
 
 export default Dots;
