@@ -5,7 +5,7 @@ import './Dot.css';
 class Dot extends PureComponent {
   getActive = () => {
     const { active } = this.props;
-    return active ? 'dot active' : 'dot';
+    return active ? 'wui-dot wui-dot-active' : 'wui-dot';
   };
   render() {
     const { id, active, dotClick } = this.props;

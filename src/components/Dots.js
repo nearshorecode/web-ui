@@ -11,7 +11,7 @@ class Dots extends PureComponent {
       dots.push(<Dot key={i} id={i} active={i === index} dotClick={dotClick} />);
     }
 
-    return <div className="dots-container">{dots}</div>;
+    return <div className="wui-dots-container">{dots}</div>;
   }
 }
 
