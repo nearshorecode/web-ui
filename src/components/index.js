@@ -5,5 +5,6 @@ import Card from './Card';
 import CardList from './CardList';
 import Dot from './Dot';
 import Dots from './Dots';
+import TimeLineText from './TimeLineText';
 
-export { Card, CardList, Dot, Dots, ImageTag, TechIcon, TechIconList, TECH_ICONS_LIST_FLOWS };
+export { Card, CardList, Dot, Dots, ImageTag, TechIcon, TechIconList, TECH_ICONS_LIST_FLOWS, TimeLineText };

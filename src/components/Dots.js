@@ -8,7 +8,7 @@ class Dots extends PureComponent {
     const { index, quantity, onDotClick } = this.props;
     let dots = [];
     for (let i = 0; i < quantity; i++) {
-      dots.push(<Dot key={i} id={i} active={i === index} onClick={onDotClick} />);
+      dots.push(<Dot key={i} id={i} active={i === index} onClick={() => onDotClick(i)} />);
     }
 
     return <div className="dots-container">{dots}</div>;

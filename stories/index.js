@@ -3,7 +3,7 @@ import { storiesOf, addDecorator } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withInfo } from '@storybook/addon-info';
 
-import { Card, CardList, Dot, Dots, ImageTag, TechIcon, TechIconList } from '../src/components';
+import { Card, CardList, Dot, Dots, ImageTag, TechIcon, TechIconList, TimeLineText } from '../src/components';
 
 import { Bouncer } from '../src/components/Animators';
 
@@ -81,17 +81,28 @@ storiesOf('Web UI Components', module)
   .add(
     'Dot',
     withInfo({ text: 'Renders a Dot, it can be active or inactive and clickable' })(() => [
-      <Dot id={1} onClik={() => {}} />,
-      <Dot id={1} onClik={() => {}} active={true} />,
+      <Dot key={1} id={1} onClik={() => {}} />,
+      <Dot key={2} id={2} onClik={() => {}} active={true} />,
+      <Dot key={3} id={3} />,
     ])
   )
 
   .add(
     'Dots',
-    withInfo({ text: 'Renders a group of Dots' })(() => (
-      <Dots
-        dots={[{ id: 1, onClick: () => {} }, { id: 2, onClick: () => {} }, { id: 3, onClick: () => {} }]}
-        quantity={3}
+    withInfo({ text: 'Renders a group of Dots' })(() => <Dots index={1} quantity={2} onDotClick={idx => alert(idx)} />)
+  )
+
+  .add(
+    'TimeLineText',
+    withInfo({ text: 'Renders a title, a text and a line with orientation' })(() => (
+      <TimeLineText
+        title={'OPORTUNIDADES ILIMITADAS'}
+        text={
+          'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.' +
+          'Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.' +
+          'Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.'
+        }
+        init={'left'}
       />
     ))
   );

@@ -7,6 +7,14 @@
   border-radius: 50%;
 }
 
+.wui-dot-2 {
+  background: grey;
+  display: inline-block;
+  padding: 6px;
+  margin-right: 12px;
+  border-radius: 50%;
+}
+
 .wui-dot-active {
   background: #09b092;
 }

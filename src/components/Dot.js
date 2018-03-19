@@ -7,7 +7,6 @@ class Dot extends PureComponent {
     const { active } = this.props;
     return active ? 'wui-dot wui-dot-active' : 'wui-dot';
   };
-
   handleClick = () => {
     const { id, onClick } = this.props;
 
@@ -17,7 +16,7 @@ class Dot extends PureComponent {
   };
 
   render() {
-    const { active } = this.props;
+    const { active, onClick } = this.props;
     const name = this.getActive();
     return <div className={name} onClick={this.handleClick} />;
   }
