@@ -7,7 +7,7 @@ import { mount } from 'enzyme';
 const QUANTITY = 2;
 const ONCLICK = () => {};
 
-const DOTS = [{ id: 1, onClick: () => {} }, { id: 1, onClick: () => {} }];
+const DOTS = [{ id: 1, onClick: () => {} }, { id: 2, onClick: () => {} }];
 
 describe('Dots Component', () => {
   it('renders without crashing', () => {
