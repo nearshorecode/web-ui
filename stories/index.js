@@ -3,7 +3,7 @@ import { storiesOf, addDecorator } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withInfo } from '@storybook/addon-info';
 
-import { Card, CardList, ImageTag, TechIcon, TechIconList } from '../src/components';
+import { Card, CardList, Dot, Dots, ImageTag, TechIcon, TechIconList, TimeLineText } from '../src/components';
 
 import { Bouncer } from '../src/components/Animators';
 
@@ -39,14 +39,14 @@ storiesOf('Web UI Components', module)
 
   .add(
     'Tech Icon',
-    withInfo({ text: 'ImageTag renders an Image along with its Tag name by using a remote url for images' })(() => (
+    withInfo({ text: 'TechIcon renders an Image along with its Tag name by using a remote url for images' })(() => (
       <TechIcon name="react" />
     ))
   )
 
   .add(
     'Tech Icon List',
-    withInfo({ text: 'ImageTag renders an Image along with its Tag name by using a remote url for images' })(() => (
+    withInfo({ text: 'TechIconList renders an Image along with its Tag name by using a remote url for images' })(() => (
       <TechIconList icons={[{ name: 'react' }, { name: 'redux' }, { name: 'mongodb' }]} />
     ))
   )
@@ -75,6 +75,35 @@ storiesOf('Web UI Components', module)
 
         <Card roundness="50%" alignment="bottom" text="UX DESIGN" />
       </CardList>
+    ))
+  )
+
+  .add(
+    'Dot',
+    withInfo({ text: 'Renders a Dot, it can be active or inactive and clickable' })(() => [
+      <Dot key={1} id={1} onClik={() => {}} />,
+      <Dot key={2} id={2} onClik={() => {}} active={true} />,
+      <Dot key={3} id={3} />,
+    ])
+  )
+
+  .add(
+    'Dots',
+    withInfo({ text: 'Renders a group of Dots' })(() => <Dots index={1} quantity={2} onDotClick={idx => alert(idx)} />)
+  )
+
+  .add(
+    'TimeLineText',
+    withInfo({ text: 'Renders a title, a text and a line with orientation' })(() => (
+      <TimeLineText
+        title={'OPORTUNIDADES ILIMITADAS'}
+        text={
+          'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.' +
+          'Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.' +
+          'Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.'
+        }
+        init={'left'}
+      />
     ))
   );
 
