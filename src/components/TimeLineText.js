@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import './TimeLineText.css';
 
 export const INIT = {
   left: 'left',
