@@ -94,7 +94,7 @@ storiesOf('Web UI Components', module)
 
   .add(
     'TimeLineText',
-    withInfo({ text: 'Renders a title, a text and a line with orientation' })(() => (
+    withInfo({ text: 'Renders a title, a text and a line with orientation' })(() => [
       <TimeLineText
         title={'OPORTUNIDADES ILIMITADAS'}
         text={
@@ -103,8 +103,19 @@ storiesOf('Web UI Components', module)
           'Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.'
         }
         init={'left'}
-      />
-    ))
+        key={`time-line-text-0`}
+      />,
+      <TimeLineText
+        title={'OPORTUNIDADES ILIMITADAS'}
+        text={
+          'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.' +
+          'Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.' +
+          'Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.'
+        }
+        init={'right'}
+        key={`time-line-text-1`}
+      />,
+    ])
   );
 
 storiesOf('Animators', module)
