@@ -1,9 +1,15 @@
 language: node_js
-node_js:
-  - 6
 cache:
   directories:
+    - ~/.npm
     - node_modules
+notifications:
+  email: true
+node_js:
+  - '9'
+  - '8'
+  - '6'
+  - '4'
 install:
   - npm install -g codecov
 script:
@@ -11,3 +17,8 @@ script:
   - yarn test
   - yarn storybook:build
   - codecov
+after_success:
+  - npm run travis-deploy-once "npm run semantic-release"
+branches:
+  except:
+    - /^v\d+\.\d+\.\d+$/

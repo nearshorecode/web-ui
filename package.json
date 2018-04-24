@@ -1,6 +1,6 @@
 {
   "name": "@nearshorecode/web-ui",
-  "version": "0.0.8-alpha3",
+  "version": "0.0.0-development",
   "dependencies": {
     "autoprefixer": "7.1.6",
     "babel-core": "6.26.0",
@@ -56,7 +56,9 @@
     "storybook:build": "build-storybook -c ./config/storybook -o build/storybook",
     "test": "node scripts/test.js --env=jsdom",
     "test:coverage": "node scripts/test.js --env=jsdom && codecov",
-    "precommit": "pretty-quick --staged"
+    "precommit": "pretty-quick --staged",
+    "semantic-release": "semantic-release",
+    "travis-deploy-once": "travis-deploy-once"
   },
   "devDependencies": {
     "@storybook/addon-info": "^3.3.15",
@@ -67,7 +69,9 @@
     "babel-preset-stage-0": "^6.24.1",
     "enzyme-react-16-adapter-setup": "^0.1.0",
     "prettier": "1.10.2",
-    "pretty-quick": "^1.4.1"
+    "pretty-quick": "^1.4.1",
+    "semantic-release": "^15.1.7",
+    "travis-deploy-once": "^4.4.1"
   },
   "jest": {
     "coverageDirectory": "./coverage/",
@@ -93,5 +97,9 @@
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nearshorecode/web-ui.git"
   }
 }
