@@ -3,10 +3,6 @@ import PropTypes from 'prop-types';
 import './Dot.css';
 
 class Dot extends PureComponent {
-  getActive = () => {
-    const { active } = this.props;
-    return active ? 'wui-dot wui-dot-active' : 'wui-dot';
-  };
   handleClick = () => {
     const { id, onClick } = this.props;
 
@@ -16,9 +12,8 @@ class Dot extends PureComponent {
   };
 
   render() {
-    const { active, onClick } = this.props;
-    const name = this.getActive();
-    return <div className={name} onClick={this.handleClick} />;
+    const { active } = this.props;
+    return <div className={active ? 'wui-dot wui-dot-active' : 'wui-dot'} onClick={this.handleClick} />;
   }
 }
 

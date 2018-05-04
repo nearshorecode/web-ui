@@ -24,7 +24,7 @@ class Card extends PureComponent {
 
     return (
       <div
-        className="Card"
+        className="wui-card"
         style={{
           borderRadius: roundness,
           ...style,

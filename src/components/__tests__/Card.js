@@ -29,7 +29,7 @@ describe('Card Component', () => {
 
   it('contains only one child tag', () => {
     const wrapper = mount(<Card {...PASSED_PROPS} />);
-    expect(wrapper.find('.Card').children().length).toBe(1);
+    expect(wrapper.find('.wui-card').children().length).toBe(1);
   });
 
   it('contains only an element for content', () => {
@@ -39,7 +39,7 @@ describe('Card Component', () => {
 
   it('should render with default props', () => {
     const wrapper = mount(<Card />);
-    const props = wrapper.find('.Card').props();
+    const props = wrapper.find('.wui-card').props();
     expect(props.style.borderRadius).toBe('0');
     expect(props.style.backgroundColor).toBe('black');
     expect(props.style.width).toBe('250px');
@@ -54,7 +54,7 @@ describe('Card Component', () => {
 
   it('should add style prop when passed', () => {
     const wrapper = mount(<Card style={STYLE} />);
-    const props = wrapper.find('.Card').props();
+    const props = wrapper.find('.wui-card').props();
     expect(props.style.backgroundColor).toBe(`${STYLE.backgroundColor}`);
   });
 
@@ -66,7 +66,7 @@ describe('Card Component', () => {
 
   it('should override bgColor, width and height if style and size props are present', () => {
     const wrapper = mount(<Card style={STYLE} size={SIZE} />);
-    const props = wrapper.find('.Card').props();
+    const props = wrapper.find('.wui-card').props();
     expect(props.style.backgroundColor).toBe(`${STYLE.backgroundColor}`);
     expect(props.style.width).toBe(`${SIZE.width}`);
     expect(props.style.height).toBe(`${SIZE.height}`);
@@ -74,9 +74,9 @@ describe('Card Component', () => {
 
   it('should call nothing when no handler is passed', () => {
     const wrapper = mount(<Card />);
-    wrapper.find('.Card').simulate('click');
-    wrapper.find('.Card').simulate('click');
-    wrapper.find('.Card').simulate('click');
+    wrapper.find('.wui-card').simulate('click');
+    wrapper.find('.wui-card').simulate('click');
+    wrapper.find('.wui-card').simulate('click');
     expect(PASSED_PROPS.onClick.mock.calls.length).toBe(0);
     expect(PASSED_PROPS.onClick).not.toBeCalled();
     expect(jest.fn()).not.toBeCalled();
@@ -84,22 +84,22 @@ describe('Card Component', () => {
 
   it('should call handler passed as prop', () => {
     const wrapper = mount(<Card onClick={PASSED_PROPS.onClick} />);
-    wrapper.find('.Card').simulate('click');
-    wrapper.find('.Card').simulate('click');
-    wrapper.find('.Card').simulate('click');
+    wrapper.find('.wui-card').simulate('click');
+    wrapper.find('.wui-card').simulate('click');
+    wrapper.find('.wui-card').simulate('click');
     expect(PASSED_PROPS.onClick).toBeCalled();
     expect(PASSED_PROPS.onClick.mock.calls.length).toBe(3);
   });
 
   it("should set cursor to 'inherit' when no handler is passed", () => {
     const wrapper = mount(<Card />);
-    const props = wrapper.find('.Card').props();
+    const props = wrapper.find('.wui-card').props();
     expect(props.style.cursor).toBe('inherit');
   });
 
   it("should set cursor to 'pointer' when handler is passed", () => {
     const wrapper = mount(<Card onClick={PASSED_PROPS.onClick} />);
-    const props = wrapper.find('.Card').props();
+    const props = wrapper.find('.wui-card').props();
     expect(props.style.cursor).toBe('pointer');
   });
 });
