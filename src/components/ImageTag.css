@@ -1,12 +1,12 @@
-.ImageTag {
+.wui-image-tag {
   display: flex;
   flex-direction: column;
 }
 
-.ImageTag img {
+.wui-image-tag img {
   margin: auto;
 }
 
-.ImageTag span {
+.wui-image-tag span {
   text-align: center;
 }

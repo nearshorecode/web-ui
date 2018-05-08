@@ -20,7 +20,7 @@ describe('ImageTag Component', () => {
   it('contains only two children tag', () => {
     const wrapper = mount(<ImageTag {...DEFAULT_PROPS} />);
 
-    expect(wrapper.find('.ImageTag').children().length).toBe(2);
+    expect(wrapper.find('.wui-image-tag').children().length).toBe(2);
   });
 
   it('contains only one img & span tag ', () => {

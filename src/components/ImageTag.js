@@ -8,7 +8,7 @@ class ImageTag extends PureComponent {
     const { imageSrc, tag, size } = this.props;
 
     return (
-      <div className="ImageTag">
+      <div className="wui-image-tag">
         <img src={imageSrc} alt={imageSrc} style={{ ...size }} />
         <span>{tag}</span>
       </div>

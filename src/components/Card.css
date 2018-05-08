@@ -1,9 +1,9 @@
-.Card {
+.wui-card {
   display: table;
   word-break: break-word;
 }
 
-.Card .content {
+.wui-card .content {
   display: table-cell;
   font-family: sans-serif;
   font-size: 120%;
